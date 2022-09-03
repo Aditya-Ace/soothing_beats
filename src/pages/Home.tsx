@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Container from '@mui/material/Container'
+import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 
@@ -47,15 +47,25 @@ const Home: React.FC<IHome> = ({ setAccessToken }) => {
 				currentUserImageSrc={currentUser?.profilePicUrl}
 				currentUserDisplayName={currentUser?.displayName}
 			/>
-			<Typography variant='h4' component='h4' gutterBottom>
-				{DEFAULTS.APP_WELCOME}
-			</Typography>
-			<Typography variant='h5' component='h5' gutterBottom>
-				{DEFAULTS.APP_DESCRIPTION}
-			</Typography>
-			<Button variant='contained' onClick={handleLogoutFromSpotify}>
-				{LOGOUT_FROM_SPOTIFY}
-			</Button>
+			<Box
+				mt={10}
+				style={{
+					display: 'flex',
+					flexDirection: 'column',
+					justifyContent: 'center',
+					alignItems: 'center'
+				}}
+			>
+				<Typography variant='h4' component='h4' gutterBottom color='#fff'>
+					{DEFAULTS.APP_WELCOME}
+				</Typography>
+				<Typography variant='h5' component='h5' gutterBottom color='#fff'>
+					{DEFAULTS.APP_DESCRIPTION}
+				</Typography>
+				<Button variant='contained' onClick={handleLogoutFromSpotify}>
+					{LOGOUT_FROM_SPOTIFY}
+				</Button>
+			</Box>
 		</>
 	)
 }

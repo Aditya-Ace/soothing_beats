@@ -11,6 +11,7 @@ import Tooltip from '@mui/material/Tooltip'
 import MusicNote from '@mui/icons-material/MusicNoteOutlined'
 
 import { DEFAULTS } from '../constants'
+
 interface NavBarProps {
 	currentUserImageSrc: string
 	currentUserDisplayName: string
@@ -25,15 +26,8 @@ const NavBar: React.FC<NavBarProps> = ({
 		null
 	)
 
-	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorElNav(event.currentTarget)
-	}
-	const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorElUser(event.currentTarget)
-	}
-
 	return (
-		<AppBar position='static'>
+		<AppBar position='sticky'>
 			<Container maxWidth='xl'>
 				<Toolbar disableGutters>
 					<MusicNote sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -56,9 +50,7 @@ const NavBar: React.FC<NavBarProps> = ({
 					</Typography>
 					<Box sx={{ flexGrow: 0 }}>
 						<Tooltip title={currentUserDisplayName}>
-							<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-								<Avatar alt='current user avatar' src={currentUserImageSrc} />
-							</IconButton>
+							<Avatar alt='current user avatar' src={currentUserImageSrc} />
 						</Tooltip>
 					</Box>
 					<Box sx={{ flexGrow: 1 }} />
