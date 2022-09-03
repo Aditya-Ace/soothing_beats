@@ -41,7 +41,7 @@ const App: React.FC<IApp> = ({ appName }) => {
 		window.open(URL, '_self', 'noopener,noreferrer')
 
 	return (
-		<Container maxWidth='xl'>
+		<Container maxWidth='sm'>
 			<Grid2
 				container
 				direction='column'

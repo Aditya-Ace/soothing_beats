@@ -7,7 +7,15 @@ const axiosConfig = (token: string) => {
 		'application/x-www-form-urlencoded'
 }
 export const fetchSpotifyUser = async (token: string) => {
-	axiosConfig(token)
-	const user = axios.get('/me')
-	return user
+	try {
+		axiosConfig(token)
+		const user = await axios.get('/me')
+		if (user.status === 200) {
+			return user.data
+		} else {
+			return null
+		}
+	} catch (error) {
+		console.error(error)
+	}
 }

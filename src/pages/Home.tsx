@@ -18,26 +18,31 @@ const Home: React.FC<IHome> = ({ setAccessToken }) => {
 	}>({ profilePicUrl: '', displayName: '' })
 	const { LOGOUT_FROM_SPOTIFY } = BUTTONS
 
+	const handleLogoutFromSpotify = () => {
+		localStorage.removeItem('access_token')
+		setAccessToken('')
+	}
+
 	useEffect(() => {
 		const token = localStorage.getItem('access_token')
 		const fetchUser = async () => {
 			if (token) {
 				const user = await fetchSpotifyUser(token)
+				if (!user) {
+					handleLogoutFromSpotify()
+					return
+				}
 				setCurrentUser({
-					profilePicUrl: user.data.images[0].url,
-					displayName: user.data.display_name
+					profilePicUrl: user?.data.images[0].url,
+					displayName: user?.data.display_name
 				})
 			}
 		}
 		fetchUser()
 	}, [])
 
-	const handleLogoutFromSpotify = () => {
-		localStorage.removeItem('access_token')
-		setAccessToken('')
-	}
 	return (
-		<Container maxWidth='xl'>
+		<>
 			<NavBar
 				currentUserImageSrc={currentUser?.profilePicUrl}
 				currentUserDisplayName={currentUser?.displayName}
@@ -51,7 +56,7 @@ const Home: React.FC<IHome> = ({ setAccessToken }) => {
 			<Button variant='contained' onClick={handleLogoutFromSpotify}>
 				{LOGOUT_FROM_SPOTIFY}
 			</Button>
-		</Container>
+		</>
 	)
 }
 
