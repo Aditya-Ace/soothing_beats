@@ -33,8 +33,8 @@ const Home: React.FC<IHome> = ({ setAccessToken }) => {
 					return
 				}
 				setCurrentUser({
-					profilePicUrl: user?.data.images[0].url,
-					displayName: user?.data.display_name
+					profilePicUrl: user?.images[0].url,
+					displayName: user?.display_name
 				})
 			}
 		}
