@@ -5,7 +5,7 @@ import Grid2 from '@mui/material/Unstable_Grid2'
 import Button from '@mui/material/Button'
 
 import { BUTTONS } from './constants'
-import Home from './components/Home'
+import Home from './pages/Home'
 
 interface IApp {
 	appName: string
