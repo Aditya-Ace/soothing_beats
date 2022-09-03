@@ -10,6 +10,7 @@ import Avatar from '@mui/material/Avatar'
 import Tooltip from '@mui/material/Tooltip'
 import MusicNote from '@mui/icons-material/MusicNoteOutlined'
 
+import { DEFAULTS } from '../constants'
 interface NavBarProps {
 	currentUserImageSrc: string
 	currentUserDisplayName: string
@@ -18,6 +19,7 @@ const NavBar: React.FC<NavBarProps> = ({
 	currentUserImageSrc,
 	currentUserDisplayName
 }) => {
+	const { APP_WELCOME } = DEFAULTS
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
 	const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
 		null
@@ -59,9 +61,10 @@ const NavBar: React.FC<NavBarProps> = ({
 							</IconButton>
 						</Tooltip>
 					</Box>
-					<Box sx={{ flexGrow: 0 }}>
+					<Box sx={{ flexGrow: 1 }} />
+					<Box sx={{ flexGrow: 2 }}>
 						<Typography variant='h5' component='h5' gutterBottom>
-							{`Welcome back, ${currentUserDisplayName}!`}
+							{`Welcome | ${currentUserDisplayName}`}
 						</Typography>
 					</Box>
 				</Toolbar>
