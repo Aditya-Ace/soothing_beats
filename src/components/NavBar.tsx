@@ -59,6 +59,11 @@ const NavBar: React.FC<NavBarProps> = ({
 							</IconButton>
 						</Tooltip>
 					</Box>
+					<Box sx={{ flexGrow: 0 }}>
+						<Typography variant='h5' component='h5' gutterBottom>
+							{`Welcome back, ${currentUserDisplayName}!`}
+						</Typography>
+					</Box>
 				</Toolbar>
 			</Container>
 		</AppBar>
