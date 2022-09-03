@@ -59,7 +59,11 @@ const App: React.FC<IApp> = ({ appName }) => {
 					{accessToken ? (
 						<Home setAccessToken={setAccessToken} />
 					) : (
-						<Button variant='contained' onClick={handleLinkToSpotify}>
+						<Button
+							variant='contained'
+							onClick={handleLinkToSpotify}
+							style={{ backgroundColor: '#1DB954' }}
+						>
 							{LINK_TO_SPOTIFY}
 						</Button>
 					)}
