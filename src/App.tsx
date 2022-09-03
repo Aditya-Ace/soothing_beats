@@ -42,33 +42,20 @@ const App: React.FC<IApp> = ({ appName }) => {
 
 	return (
 		<Container maxWidth='sm'>
-			<Grid2
-				container
-				direction='column'
-				justifyContent='center'
-				alignItems='center'
-				spacing={2}
-				mt={10}
-			>
-				<Grid2 xs={6}>
-					<Typography variant='h1' component='h1' gutterBottom>
-						{appName}
-					</Typography>
-				</Grid2>
-				<Grid2 xs={6}>
-					{accessToken ? (
-						<Home setAccessToken={setAccessToken} />
-					) : (
-						<Button
-							variant='contained'
-							onClick={handleLinkToSpotify}
-							style={{ backgroundColor: '#1DB954' }}
-						>
-							{LINK_TO_SPOTIFY}
-						</Button>
-					)}
-				</Grid2>
-			</Grid2>
+			<Typography variant='h1' component='h1' gutterBottom>
+				{appName}
+			</Typography>
+			{accessToken ? (
+				<Home setAccessToken={setAccessToken} />
+			) : (
+				<Button
+					variant='contained'
+					onClick={handleLinkToSpotify}
+					style={{ backgroundColor: '#1DB954' }}
+				>
+					{LINK_TO_SPOTIFY}
+				</Button>
+			)}
 		</Container>
 	)
 }
