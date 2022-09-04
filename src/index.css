@@ -17,7 +17,7 @@ button {
 	background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%);
 }
 
-.button:hover {
+button:hover {
 	background-image: linear-gradient(
 		to right,
 		#e55d87 0%,
