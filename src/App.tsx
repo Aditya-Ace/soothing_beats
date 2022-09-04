@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react'
 import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-
 import Button from '@mui/material/Button'
+import MusicVideoIcon from '@mui/icons-material/MusicVideo'
 
+import styles from './App.module.scss'
 import { BUTTONS } from './constants'
 import Home from './pages/Home'
 
@@ -14,7 +15,7 @@ interface IApp {
 const App: React.FC<IApp> = ({ appName }) => {
 	const [accessToken, setAccessToken] = useState('')
 
-	const { LINK_TO_SPOTIFY, LOGOUT_FROM_SPOTIFY } = BUTTONS
+	const { LINK_TO_SPOTIFY } = BUTTONS
 
 	const authEndPoint = import.meta.env.VITE_AUTH_ENDPOINT
 	const spotifyClientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID
@@ -38,25 +39,25 @@ const App: React.FC<IApp> = ({ appName }) => {
 		setAccessToken(token)
 	}, [])
 
-	const handleLinkToSpotify = () =>
-		window.open(URL, '_self', 'noopener,noreferrer')
 	return accessToken ? (
 		<Home setAccessToken={setAccessToken} />
 	) : (
 		<Container maxWidth='xl'>
-			<Box
-				style={{
-					display: 'flex',
-					flexDirection: 'column',
-					justifyContent: 'center',
-					alignItems: 'center'
-				}}
-				mt={10}
-			>
+			<Box className={styles.boxStyle} mt={10}>
 				<Typography variant='h1' component='h1' gutterBottom color='#fff'>
 					{appName}
 				</Typography>
-				<Button variant='contained' onClick={handleLinkToSpotify}>
+				<Button
+					variant='contained'
+					href={URL}
+					startIcon={
+						<MusicVideoIcon
+							sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
+							style={{ color: '#fff' }}
+						/>
+					}
+					style={{ color: '#fff' }}
+				>
 					{LINK_TO_SPOTIFY}
 				</Button>
 			</Box>

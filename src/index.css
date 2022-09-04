@@ -11,28 +11,3 @@ body {
 		#000000
 	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
-button {
-	background-color: #f4d03f;
-	background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%);
-	border: none;
-	border-radius: 5px;
-	color: #fff;
-	cursor: pointer;
-	font-size: 1.2rem;
-	font-weight: 700;
-	padding: 0.5rem 1rem;
-	transition: all 0.3s ease-in-out;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-button:hover {
-	background-image: linear-gradient(
-		to right,
-		#e55d87 0%,
-		#5fc3e4 51%,
-		#e55d87 100%
-	);
-	transform: scale(1.1);
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
+import ExitToAppIcon from '@mui/icons-material/ExitToApp'
 
 import NavBar from '../components/NavBar'
 import { DEFAULTS, BUTTONS } from '../constants'
@@ -42,7 +43,7 @@ const Home: React.FC<IHome> = ({ setAccessToken }) => {
 	}, [])
 
 	return (
-		<>
+		<section>
 			<NavBar
 				currentUserImageSrc={currentUser?.profilePicUrl}
 				currentUserDisplayName={currentUser?.displayName}
@@ -62,11 +63,21 @@ const Home: React.FC<IHome> = ({ setAccessToken }) => {
 				<Typography variant='h5' component='h5' gutterBottom color='#fff'>
 					{DEFAULTS.APP_DESCRIPTION}
 				</Typography>
-				<Button variant='contained' onClick={handleLogoutFromSpotify}>
+				<Button
+					variant='contained'
+					startIcon={
+						<ExitToAppIcon
+							sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
+							style={{ color: '#fff' }}
+						/>
+					}
+					style={{ color: '#fff' }}
+					onClick={handleLogoutFromSpotify}
+				>
 					{LOGOUT_FROM_SPOTIFY}
 				</Button>
 			</Box>
-		</>
+		</section>
 	)
 }
 
