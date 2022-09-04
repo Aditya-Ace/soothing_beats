@@ -6,6 +6,7 @@ import Button from '@mui/material/Button'
 import MusicVideoIcon from '@mui/icons-material/MusicVideo'
 
 import styles from './App.module.scss'
+import { URL } from './services/spotify'
 import { BUTTONS } from './constants'
 import Home from './pages/Home'
 
@@ -14,14 +15,7 @@ interface IApp {
 }
 const App: React.FC<IApp> = ({ appName }) => {
 	const [accessToken, setAccessToken] = useState('')
-
 	const { LINK_TO_SPOTIFY } = BUTTONS
-
-	const authEndPoint = import.meta.env.VITE_AUTH_ENDPOINT
-	const spotifyClientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID
-	const redirectURI = import.meta.env.VITE_REDIRECT_URI
-	const responseType = import.meta.env.VITE_RESPONSE_TYPE
-	const URL = `${authEndPoint}?client_id=${spotifyClientId}&redirect_uri=${redirectURI}&response_type=${responseType}`
 
 	useEffect(() => {
 		const hash = window.location.hash

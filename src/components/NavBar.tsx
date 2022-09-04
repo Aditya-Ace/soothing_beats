@@ -20,11 +20,14 @@ const NavBar: React.FC<NavBarProps> = ({
 	currentUserImageSrc,
 	currentUserDisplayName
 }) => {
-	const { APP_WELCOME } = DEFAULTS
+	const { APP_WELCOME, APP_DEFAULT_USER_IMAGE } = DEFAULTS
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
 	const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
 		null
 	)
+	const handleImageLoadError = (e: React.SyntheticEvent<HTMLImageElement>) =>
+		(e.currentTarget.src = APP_DEFAULT_USER_IMAGE)
+
 	return (
 		<AppBar position='sticky'>
 			<Container maxWidth='xl'>
@@ -49,7 +52,11 @@ const NavBar: React.FC<NavBarProps> = ({
 					</Typography>
 					<Box sx={{ flexGrow: 0 }}>
 						<Tooltip title={currentUserDisplayName}>
-							<Avatar alt='current user avatar' src={currentUserImageSrc} />
+							<Avatar
+								alt='current user avatar'
+								src={currentUserImageSrc ?? APP_DEFAULT_USER_IMAGE}
+								onError={handleImageLoadError}
+							/>
 						</Tooltip>
 					</Box>
 					<Box sx={{ flexGrow: 1 }} />
