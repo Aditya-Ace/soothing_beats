@@ -25,7 +25,6 @@ const NavBar: React.FC<NavBarProps> = ({
 	const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
 		null
 	)
-
 	return (
 		<AppBar position='sticky'>
 			<Container maxWidth='xl'>
