@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import ExitToAppIcon from '@mui/icons-material/ExitToApp'
 
 import NavBar from '../components/NavBar'
+import Select from '../components/Select'
 import { DEFAULTS, BUTTONS } from '../constants'
 import { fetchSpotifyUser } from '../services'
 
@@ -47,6 +46,7 @@ const Home: React.FC<IHome> = ({ setAccessToken }) => {
 			<NavBar
 				currentUserImageSrc={currentUser?.profilePicUrl}
 				currentUserDisplayName={currentUser?.displayName}
+				handleLogoutFromSpotify={handleLogoutFromSpotify}
 			/>
 			<Box
 				mt={10}
@@ -63,19 +63,7 @@ const Home: React.FC<IHome> = ({ setAccessToken }) => {
 				<Typography variant='h5' component='h5' gutterBottom color='#fff'>
 					{DEFAULTS.APP_DESCRIPTION}
 				</Typography>
-				<Button
-					variant='contained'
-					startIcon={
-						<ExitToAppIcon
-							sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
-							style={{ color: '#fff' }}
-						/>
-					}
-					style={{ color: '#fff' }}
-					onClick={handleLogoutFromSpotify}
-				>
-					{LOGOUT_FROM_SPOTIFY}
-				</Button>
+				<Select />
 			</Box>
 		</section>
 	)
