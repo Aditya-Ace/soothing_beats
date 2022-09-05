@@ -11,11 +11,17 @@ interface IHome {
 	setAccessToken: (token: string) => void
 }
 
+type UserDetails = {
+	profilePicUrl: string
+	displayName: string
+}
+
 const Home: React.FC<IHome> = ({ setAccessToken }) => {
-	const [currentUser, setCurrentUser] = useState<{
-		profilePicUrl: string
-		displayName: string
-	}>({ profilePicUrl: '', displayName: '' })
+	const [currentUser, setCurrentUser] = useState<UserDetails>({
+		profilePicUrl: '',
+		displayName: ''
+	})
+	const [beat, setBeat] = useState('')
 	const { LOGOUT_FROM_SPOTIFY } = BUTTONS
 
 	const handleLogoutFromSpotify = () => {
@@ -63,7 +69,12 @@ const Home: React.FC<IHome> = ({ setAccessToken }) => {
 				<Typography variant='h5' component='h5' gutterBottom color='#fff'>
 					{DEFAULTS.APP_DESCRIPTION}
 				</Typography>
-				<Select />
+				<Select beat={beat} setBeat={setBeat} />
+				{beat && (
+					<Typography variant='h5' component='h5' gutterBottom color='#fff'>
+						Currently Playing: {beat}
+					</Typography>
+				)}
 			</Box>
 		</section>
 	)

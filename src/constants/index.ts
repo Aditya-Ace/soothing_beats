@@ -11,5 +11,5 @@ export const DEFAULTS = {
 
 export const BUTTONS = {
 	LINK_TO_SPOTIFY: 'Link to Spotify',
-	LOGOUT_FROM_SPOTIFY: 'Logout from Spotify'
+	LOGOUT_FROM_SPOTIFY: 'Hasta la vista'
 }

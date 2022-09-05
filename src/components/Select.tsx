@@ -25,9 +25,13 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 		}
 	}
 }))
-export default function SelectSmall() {
-	const [beat, setBeat] = useState('')
 
+interface ISelect {
+	beat: string
+	setBeat: (beat: string) => void
+}
+
+const SelectBeat: React.FC<ISelect> = ({ beat, setBeat }) => {
 	const handleChange = (event: SelectChangeEvent) => {
 		setBeat(event.target.value)
 	}
@@ -43,15 +47,17 @@ export default function SelectSmall() {
 				onChange={handleChange}
 				input={<BootstrapInput />}
 			>
-				<MenuItem value='lofi'>Lo-Fi</MenuItem>
-				<MenuItem value='mindfulness'>Mindfulness</MenuItem>
-				<MenuItem value='dreamy'>Dreamy</MenuItem>
-				<MenuItem value='dark'>Dark</MenuItem>
-				<MenuItem value='light'>Light</MenuItem>
-				<MenuItem value='hopeful'>Hopeful</MenuItem>
-				<MenuItem value='connected'>Connected</MenuItem>
-				<MenuItem value='spiritual'>Spiritual</MenuItem>
+				<MenuItem value='Lo-Fi'>Lo-Fi</MenuItem>
+				<MenuItem value='Mindfulness'>Mindfulness</MenuItem>
+				<MenuItem value='Dreamy'>Dreamy</MenuItem>
+				<MenuItem value='Dark'>Dark</MenuItem>
+				<MenuItem value='Light'>Light</MenuItem>
+				<MenuItem value='Hopeful'>Hopeful</MenuItem>
+				<MenuItem value='Connected'>Connected</MenuItem>
+				<MenuItem value='Spiritual'>Spiritual</MenuItem>
 			</Select>
 		</FormControl>
 	)
 }
+
+export default SelectBeat
