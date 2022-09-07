@@ -13,3 +13,8 @@ export const BUTTONS = {
 	LINK_TO_SPOTIFY: 'Link to Spotify',
 	LOGOUT_FROM_SPOTIFY: 'Hasta la vista'
 }
+
+export const PLAYLISTS = {
+	PrimaryPlaylist: "Aditya's Best LO-FI Sooting Beats Collection",
+	PrimaryPlaylistId: '7Ff5TFPyem19M26PVBvP35'
+}

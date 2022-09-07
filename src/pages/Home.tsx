@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar'
 import Select from '../components/Select'
 import { DEFAULTS, BUTTONS } from '../constants'
 import { fetchSpotifyUser } from '../services'
+import SoothingBeatsPlayer from './SoothingBeatsPlayer'
 
 interface IHome {
 	setAccessToken: (token: string) => void
@@ -71,11 +72,22 @@ const Home: React.FC<IHome> = ({ setAccessToken }) => {
 				</Typography>
 				<Select beat={beat} setBeat={setBeat} />
 				{beat && (
-					<Typography variant='h5' component='h5' gutterBottom color='#fff'>
-						Currently Playing: {beat}
-					</Typography>
+					<SoothingBeatsPlayer
+						beat={beat}
+						handleLogoutFromSpotify={handleLogoutFromSpotify}
+					/>
 				)}
 			</Box>
+			<footer
+				style={{
+					color: '#FFF',
+					textAlign: 'center',
+					marginTop: '2rem',
+					marginBottom: '2rem'
+				}}
+			>
+				Still in Development: Have fun playing with it.
+			</footer>
 		</section>
 	)
 }
